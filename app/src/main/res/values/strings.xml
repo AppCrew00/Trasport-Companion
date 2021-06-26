@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Auth0 WebAuth KT</string>
-
     <string name="com_auth0_client_id">4UYSJHpdJsKZUcGt7Fo5X8C8BUg6iV2t</string>
     <string name="com_auth0_domain">dev-785bgoj4.us.auth0.com</string>
     <string name="com_auth0_scheme">demo</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYXVnc2Frc2hhbSIsImEiOiJja3BlMHYwMWwxMDJyMm5ycmxvczVsczY1In0.Ja5PitQTJdlhqAoatZYu_g</string>
 </resources>

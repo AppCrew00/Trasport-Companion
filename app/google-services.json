@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "29690003983",
+    "project_id": "transport-companion",
+    "storage_bucket": "transport-companion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29690003983:android:eb92b92d588c10303fd97a",
+        "android_client_info": {
+          "package_name": "com.auth0.androidsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29690003983-ok6it0c6gpvpouu118l5vgo1722vkoed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyOlC6oYRP7CBo3h2PaUUJdD7lQcJ_YdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29690003983-ok6it0c6gpvpouu118l5vgo1722vkoed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
