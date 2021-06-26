@@ -75,6 +75,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     // variables for adding location layer
     private PermissionsManager permissionsManager;
     private double lat,lng;
+    private int slct_btn=1;
+    private String lt,lg;
     private String stringImage;
     private LocationComponent locationComponent;
     // variables for calculating and drawing a route
@@ -91,8 +93,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_map);
         stringImage="android.graphics.Bitmap@48f4edb";
         mapView = findViewById(R.id.mapView);
-        btn2=findViewById(R.id.gotoButton);
         mapView.onCreate(savedInstanceState);
+        Intent i=getIntent();
+        String st=i.getStringExtra("Caller");
+        if(st.equalsIgnoreCase("User")) slct_btn=2;
+        else slct_btn=1;
         mapView.getMapAsync(this);
         // You can add any new location marker here
         // Steps:
@@ -100,15 +105,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // Ex- MapData <custom_variable_name>=new MapData(<name>,<latitiude>,<Longitude>);
         // Now add this MapData to arraylist like -> arrlist.add(<custom_variable_name>);
         // Done
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MapActivity.this,GoToActivity.class);
-                startActivity(i);
-            }
-        });
-
-
     }
 
     @Override
@@ -121,6 +117,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 addDestinationIconSymbolLayer(style);
                 mapboxMap.addOnMapClickListener(MapActivity.this);
                 button = findViewById(R.id.startButton);
+                btn2=findViewById(R.id.confirm_location);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -130,6 +127,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 .shouldSimulateRoute(simulateRoute)
                                 .build();
                         NavigationLauncher.startNavigation(MapActivity.this, options);
+                    }
+                });
+                btn2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedPreferences = getSharedPreferences("Location",MODE_PRIVATE);
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                        String res=lt+"+"+lg;
+                        myEdit.putString("Destination",res);
+                        myEdit.commit();
+                        finish();
                     }
                 });
             }
@@ -161,10 +169,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         if (source != null) {
             source.setGeoJson(Feature.fromGeometry(destinationPoint));
         }
-        getRoute(originPoint, destinationPoint);
-        button.setEnabled(true);
-        button.setVisibility(View.VISIBLE);
-        return true;
+        if(slct_btn==1) {
+            getRoute(originPoint, destinationPoint);
+            button.setEnabled(true);
+            button.setVisibility(View.VISIBLE);
+            return true;
+        }
+        else{
+            btn2.setVisibility(View.VISIBLE);
+            btn2.setEnabled(true);
+            lt=String.valueOf(point.getLatitude());
+            lg=String.valueOf(point.getLongitude());
+            return  true;
+        }
     }
 
     private void getRoute(Point origin, Point destination) {
