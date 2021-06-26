@@ -14,6 +14,8 @@ import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
 import com.auth0.sample.databinding.ActivityMainBinding
+import com.auth0.sample.seller.SellerActivity
+import com.auth0.sample.seller.SellerMainActivity
 import com.google.android.material.snackbar.Snackbar
 
 class AuthActivity : AppCompatActivity() {
@@ -72,7 +74,7 @@ class AuthActivity : AppCompatActivity() {
                     showSnackBar("Success: ${credentials.accessToken}")
                     updateUI()
                     showUserProfile()
-                    val intent = Intent(this@AuthActivity, UserRegistrationActivity::class.java)
+                    val intent = Intent(this@AuthActivity, SellerMainActivity::class.java)
                     startActivity(intent)
                     finish();
                 }

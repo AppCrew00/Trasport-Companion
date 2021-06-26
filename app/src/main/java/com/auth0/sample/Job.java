@@ -1,7 +1,7 @@
 package com.auth0.sample;
 
 public class Job {
-    private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode;
+    private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode,city;
 
     public Job(String name, String email, String phone_number, String address, String landmark, String weight, String payment, String time, String job_title, String latLong, String pincode) {
         this.name = name;
@@ -20,6 +20,14 @@ public class Job {
     private Job ()
     {
 
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getName() {

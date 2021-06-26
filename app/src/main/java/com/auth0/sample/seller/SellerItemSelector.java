@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.auth0.sample.R;
 import com.auth0.sample.databinding.ActivitySellerItemSelectorBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class SellerItemSelector extends AppCompatActivity implements View.OnClic
     private ArrayList<String> items = new ArrayList<>();
     private ActivitySellerItemSelectorBinding binding;
     private SellerInfo sellerInfo;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +28,15 @@ public class SellerItemSelector extends AppCompatActivity implements View.OnClic
         binding = ActivitySellerItemSelectorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        sellerInfo = (SellerInfo) getIntent().getSerializableExtra("item");
+        sellerInfo = (SellerInfo) getIntent().getSerializableExtra("info");
 
         binding.baloo.setOnClickListener(this::onClick);
         binding.sariya.setOnClickListener(this::onClick);
         binding.maurang.setOnClickListener(this::onClick);
         binding.cement.setOnClickListener(this::onClick);
         binding.done.setOnClickListener(this::onClick);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
     }
 
     @Override
@@ -79,7 +84,8 @@ public class SellerItemSelector extends AppCompatActivity implements View.OnClic
             case R.id.done:
 
                 sellerInfo.setItems(items);
-                Intent intent = new Intent(SellerItemSelector.this,SellerMainActivity.class);
+                databaseReference.push().setValue(sellerInfo);
+                Intent intent = new Intent(SellerItemSelector.this,SellerActivity.class);
                 startActivity(intent);
 
                 break;
