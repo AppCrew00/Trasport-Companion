@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "29690003983",
-    "project_id": "transport-companion",
-    "storage_bucket": "transport-companion.appspot.com"
+    "project_number": "119724088645",
+    "project_id": "hackathon-8aedd",
+    "storage_bucket": "hackathon-8aedd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:29690003983:android:eb92b92d588c10303fd97a",
+        "mobilesdk_app_id": "1:119724088645:android:b0e39bf7540a64f80bf22c",
         "android_client_info": {
-          "package_name": "com.auth0.androidsample"
+          "package_name": "com.auth0.sample"
         }
       },
       "oauth_client": [
         {
-          "client_id": "29690003983-ok6it0c6gpvpouu118l5vgo1722vkoed.apps.googleusercontent.com",
+          "client_id": "119724088645-im4n8maavt0fmejq44mejn9k1fc3ftio.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAyOlC6oYRP7CBo3h2PaUUJdD7lQcJ_YdE"
+          "current_key": "AIzaSyDowcdm_tL3l1edd2nLvLUfiUITX983SRA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "29690003983-ok6it0c6gpvpouu118l5vgo1722vkoed.apps.googleusercontent.com",
+              "client_id": "119724088645-im4n8maavt0fmejq44mejn9k1fc3ftio.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
