@@ -3,7 +3,6 @@ package com.auth0.sample;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -38,20 +36,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
         imageUrl="";
-        iv_image=findViewById(R.id.user_img);
         et_full_name=findViewById(R.id.et_full_name);
         et_pincode=findViewById(R.id.et_pincode);
         et_phone_number=findViewById(R.id.et_phone_number);
-        et_address=findViewById(R.id.et_address);
         storageReference = FirebaseStorage.getInstance().getReference().child("User_Photos");
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
-    }
-
-    public void change_dp(View view) {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
     }
     void UploadImage(){
         photoRef.putFile(photoUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -69,7 +58,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull @NotNull Exception e) {
-                        Toast.makeText(getApplicationContext(), (CharSequence) e, Toast.LENGTH_SHORT).show();
+                        pbDiaglog.cancel();
                     }
                 });
     }
@@ -89,11 +78,13 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
     public void set_details(View view) {
         full_name=et_full_name.getText().toString();
-        address=et_address.getText().toString();
+        address=" ";
         pincode=et_pincode.getText().toString();
         phone_number=et_phone_number.getText().toString();
         User newUser=new User(full_name,phone_number,address,pincode,imageUrl);
-        databaseReference.
-
+        databaseReference.push().setValue(newUser);
+        Intent i=new Intent(this,UserMainActivity.class);
+        startActivity(i);
+        finish();
     }
 }

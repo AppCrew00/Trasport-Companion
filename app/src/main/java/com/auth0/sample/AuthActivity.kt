@@ -48,9 +48,7 @@ class AuthActivity : AppCompatActivity() {
         binding.userProfile.isVisible = cachedCredentials != null
 
         binding.userProfile.text =
-            "Name: ${cachedUserProfile?.name ?: ""}\n" +
-                    "Email: ${cachedUserProfile?.email ?: ""}"
-
+            "Name: ${cachedUserProfile?.name ?: ""}\n" + "Email: ${cachedUserProfile?.email ?: ""}"
         if (cachedUserProfile == null) {
             binding.inputEditMetadata.setText("")
         }
@@ -74,8 +72,9 @@ class AuthActivity : AppCompatActivity() {
                     showSnackBar("Success: ${credentials.accessToken}")
                     updateUI()
                     showUserProfile()
-                    val intent = Intent(this@AuthActivity, MainActivity::class.java)
+                    val intent = Intent(this@AuthActivity, UserRegistrationActivity::class.java)
                     startActivity(intent)
+                    finish();
                 }
             })
     }
@@ -100,9 +99,6 @@ class AuthActivity : AppCompatActivity() {
 
     private fun showUserProfile() {
         val client = AuthenticationAPIClient(account)
-
-        // Use the access token to call userInfo endpoint.
-        // In this sample, we can assume cachedCredentials has been initialized by this point.
         client.userInfo(cachedCredentials!!.accessToken!!)
             .start(object : Callback<UserProfile, AuthenticationException> {
                 override fun onFailure(exception: AuthenticationException) {
@@ -111,6 +107,10 @@ class AuthActivity : AppCompatActivity() {
 
                 override fun onSuccess(profile: UserProfile) {
                     cachedUserProfile = profile;
+                    val sharedPreferences = getSharedPreferences("EmailVar", MODE_PRIVATE)
+                    val myEdit = sharedPreferences.edit()
+                    myEdit.putString("Email",cachedUserProfile?.email)
+                    myEdit.commit()
                     updateUI()
                 }
             })
@@ -152,11 +152,9 @@ class AuthActivity : AppCompatActivity() {
                     cachedUserProfile = profile
                     updateUI()
                     showSnackBar("Successful")
-
                 }
             })
     }
-
     private fun showSnackBar(text: String) {
         Snackbar.make(
             binding.root,
