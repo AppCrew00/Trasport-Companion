@@ -39,14 +39,6 @@
         android:background="@android:color/transparent"
         android:hint="Enter the ZipCode" />
 
-    <TextView
-        android:id="@+id/items"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Select the items that you sell"
-        android:textColor="@color/black" />
-
     <Button
         android:id="@+id/done"
         android:layout_width="wrap_content"

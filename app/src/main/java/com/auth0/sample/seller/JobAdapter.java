@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull @NotNull JobAdapter.JobViewHolder holder, int position) {
 
+        if ( position%2 == 1)
+            holder.linearLayout.setBackgroundResource(R.drawable.purple_box);
+
         holder.jobtitle.setText(jobList.get(position).getJob_title());
         holder.city_state.setText(jobList.get(position).getJob_title());
         holder.price.setText(jobList.get(position).getPayment());
@@ -56,10 +60,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
     public class JobViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView price , jobtitle ,weight , city_state;
+        private LinearLayout linearLayout;
 
         public JobViewHolder(@NonNull @NotNull View itemView , clickMe clickme) {
             super(itemView);
-
+            linearLayout = itemView.findViewById(R.id.linear_layout);
             price = itemView.findViewById(R.id.price);
             city_state = itemView.findViewById(R.id.location_city_state);
             weight = itemView.findViewById(R.id.weight);

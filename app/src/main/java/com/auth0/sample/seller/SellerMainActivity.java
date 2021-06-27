@@ -36,7 +36,6 @@ public class SellerMainActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         binding = ActivitySellerMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.items.setOnClickListener(this::onClick);
         binding.done.setOnClickListener(this::onClick);
 
         sharedPreferences = getSharedPreferences("EmailVar", MODE_PRIVATE);
@@ -69,12 +68,6 @@ public class SellerMainActivity extends AppCompatActivity implements View.OnClic
 
         switch ( v.getId() )
         {
-            case R.id.items:
-
-                Intent intent = new Intent(this,SellerItemSelector.class);
-                startActivity(intent);
-                break;
-
             case R.id.done:
 
                 SellerInfo sellerInfo = new SellerInfo();
