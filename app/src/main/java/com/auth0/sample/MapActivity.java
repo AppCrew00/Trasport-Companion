@@ -66,7 +66,8 @@ import android.widget.Button;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener {
+public class
+MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener {
     // variables for adding location layer
     private MapView mapView;
     private static final String ID_ICON_AIRPORT = "airport";
@@ -84,7 +85,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final String TAG = "DirectionsActivity";
     private NavigationMapRoute navigationMapRoute;
     // variables needed to initialize navigation
-    private Button button,btn2;
+    private Button button;
+    private TextView btn2;
     int k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

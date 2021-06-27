@@ -25,11 +25,12 @@
         mapbox:layout_constraintBottom_toBottomOf="parent"
         mapbox:layout_constraintEnd_toEndOf="parent"
         mapbox:layout_constraintStart_toStartOf="parent" />
-    <Button
+
+    <TextView
         android:id="@+id/confirm_location"
-        android:layout_width="296dp"
-        android:layout_height="50dp"
-        android:background="@color/black"
+        android:layout_width="357dp"
+        android:layout_height="68dp"
+        android:background="@drawable/confirm_location"
         android:enabled="false"
         android:visibility="invisible"
         mapbox:layout_constraintBottom_toBottomOf="parent"

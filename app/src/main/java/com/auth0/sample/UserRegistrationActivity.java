@@ -41,6 +41,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
         et_phone_number=findViewById(R.id.et_phone_number);
         storageReference = FirebaseStorage.getInstance().getReference().child("User_Photos");
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+        int slct=1;
+        Intent i=getIntent();
+        String str=i.getStringExtra("UserType");
+        if(str.equalsIgnoreCase("User"))slct=2;
+        else slct=1;
     }
     void UploadImage(){
         photoRef.putFile(photoUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
