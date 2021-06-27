@@ -2,10 +2,11 @@ package com.auth0.sample.classes;
 
 import com.auth0.sample.classes.Bid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Job {
+public class Job implements Serializable {
     private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode,city;
     private List<Bid> lst;
     public Job(String name, String email, String phone_number, String address, String landmark, String weight, String payment, String time, String job_title, String latLong, String pincode,String city) {

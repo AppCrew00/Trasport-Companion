@@ -1,6 +1,7 @@
 package com.auth0.sample.seller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.auth0.sample.SingleViewActivity;
 import com.auth0.sample.classes.Job;
 import com.auth0.sample.R;
 
@@ -51,6 +53,10 @@ public class FragmentSeller extends Fragment implements JobAdapter.clickMe{
     @Override
     public void perform(int a) {
 
+        Intent intent = new Intent( context , SingleViewActivity.class);
+        intent.putExtra("caller" ,"truck");
+        intent.putExtra("Object",jobList.get(a));
+        startActivity(intent);
 
     }
 }

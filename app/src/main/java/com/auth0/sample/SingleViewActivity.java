@@ -129,12 +129,11 @@ public class SingleViewActivity extends AppCompatActivity {
     }
 
     public void btn_bid(View view) {
-        if(srt.equalsIgnoreCase("User")){
 
-        }
-        else{
-            // handel showing of all the bids
-        }
+        Intent intent = new Intent( this , BidRecyclerAdapter.class );
+        intent.putExtra("bid",jbr);
+        startActivity(intent);
+
     }
     private void focusOnView(int val){
         new Handler().post(new Runnable() {
