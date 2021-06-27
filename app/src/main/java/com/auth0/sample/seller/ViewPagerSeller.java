@@ -2,16 +2,14 @@ package com.auth0.sample.seller;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.auth0.sample.Job;
+import com.auth0.sample.classes.Job;
 
 import org.jetbrains.annotations.NotNull;
 

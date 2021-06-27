@@ -7,7 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.auth0.sample.Job;
+import com.auth0.sample.classes.Job;
 import com.auth0.sample.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.ChildEventListener;

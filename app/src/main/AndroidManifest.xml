@@ -16,7 +16,7 @@
         <activity android:name=".SingleViewActivity"></activity>
         <activity android:name=".UserRecyclerView"></activity>
         <activity
-            android:name=".MainPageActivity"
+            android:name=".common.MainPageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -37,14 +37,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".UserRegistrationActivity" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".common.AuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 

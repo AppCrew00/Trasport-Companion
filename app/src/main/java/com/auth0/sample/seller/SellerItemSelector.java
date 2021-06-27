@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.auth0.sample.R;
+import com.auth0.sample.classes.SellerInfo;
 import com.auth0.sample.databinding.ActivitySellerItemSelectorBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SellerItemSelector extends AppCompatActivity implements View.OnClickListener {
 

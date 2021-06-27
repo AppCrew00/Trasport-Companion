@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.auth0.sample.R;
+import com.auth0.sample.classes.SellerInfo;
 import com.auth0.sample.databinding.ActivitySellerMainBinding;
 
 public class SellerMainActivity extends AppCompatActivity implements View.OnClickListener{

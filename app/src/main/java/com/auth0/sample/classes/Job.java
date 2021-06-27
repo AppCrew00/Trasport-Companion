@@ -1,4 +1,4 @@
-package com.auth0.sample;
+package com.auth0.sample.classes;
 
 public class Job {
     private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode,city;
