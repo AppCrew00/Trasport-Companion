@@ -5,23 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class UserMainActivity extends AppCompatActivity {
-    private String address,pincode,latlong,phoneNumber,landmark,weight,title,payment,time,email;
-    private EditText et_title,et_address,et_landmark,et_weight,et_payment,et_time,et_phone_number,et_pincode;
+    private String address,pincode,latlong,phoneNumber,landmark,weight,title,payment,time,email,city;
+    private EditText et_title,et_address,et_landmark,et_weight,et_payment,et_time,et_phone_number,et_pincode,et_city;
     private DatabaseReference databaseReference,dat2;
-
+    private ScrollView scrollView;
+    private LinearLayout ll_job,ll_destination;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
         et_title=findViewById(R.id.et_job_description);
+        ll_job=findViewById(R.id.ll_post);
+        ll_destination=findViewById(R.id.ll_address_details);
+        scrollView=findViewById(R.id.scroll_view);
+        et_city=findViewById(R.id.et_city);
         et_address=findViewById(R.id.et_address);
         et_landmark=findViewById(R.id.et_landmark);
         et_time=findViewById(R.id.et_last_date);
@@ -47,9 +55,10 @@ public class UserMainActivity extends AppCompatActivity {
         address=et_address.getText().toString();
         landmark=et_landmark.getText().toString();
         pincode=et_pincode.getText().toString();
+        city=et_city.getText().toString();
         weight=et_weight.getText().toString();
         phoneNumber=et_phone_number.getText().toString();
-        Job jb=new Job(email,email,phoneNumber,address,landmark,weight,payment,time,title,latlong,pincode);
+        Job jb=new Job(email,email,phoneNumber,address,landmark,weight,payment,time,title,latlong,pincode,city);
         jb.setCity("lmp");
         databaseReference.push().setValue(jb);
         Toast.makeText(this, "Posted Successfully", Toast.LENGTH_SHORT).show();
@@ -79,5 +88,30 @@ public class UserMainActivity extends AppCompatActivity {
         et_landmark.setText("");
         et_title.setText("");
         et_time.setText("");
+        et_city.setText("");
+    }
+
+    public void set_details(View view) {
+        focusOnView(1);
+    }
+
+    public void set_destination(View view) {
+        focusOnView(2);
+    }
+    private void focusOnView(int val){
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if(val==1){
+                    scrollView.scrollTo(0, ll_destination.getTop());
+                }
+                else if(val==2){
+                    scrollView.scrollTo(0, ll_job.getTop());
+                }
+                else{
+                    scrollView.scrollTo(0, ll_job.getTop());
+                }
+            }
+        });
     }
 }

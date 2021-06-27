@@ -3,9 +3,10 @@ package com.auth0.sample;
 public class Job {
     private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode,city;
 
-    public Job(String name, String email, String phone_number, String address, String landmark, String weight, String payment, String time, String job_title, String latLong, String pincode) {
+    public Job(String name, String email, String phone_number, String address, String landmark, String weight, String payment, String time, String job_title, String latLong, String pincode,String city) {
         this.name = name;
         this.email = email;
+        this.city=city;
         this.phone_number = phone_number;
         this.address = address;
         this.landmark = landmark;

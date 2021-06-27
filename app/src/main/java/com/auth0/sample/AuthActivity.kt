@@ -3,7 +3,6 @@ package com.auth0.sample
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.auth0.android.Auth0
 import com.auth0.android.authentication.AuthenticationAPIClient
 import com.auth0.android.authentication.AuthenticationException
@@ -14,7 +13,6 @@ import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
 import com.auth0.sample.databinding.ActivityMainBinding
-import com.auth0.sample.seller.SellerActivity
 import com.auth0.sample.seller.SellerMainActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -24,6 +22,7 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var cachedCredentials: Credentials? = null
     private var cachedUserProfile: UserProfile? = null
+    private var slct = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,21 +38,15 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.buttonLogin.setOnClickListener { loginWithBrowser() }
         binding.buttonLogout.setOnClickListener { logout() }
-        binding.buttonGetMetadata.setOnClickListener { getUserMetadata() }
-        binding.buttonPatchMetadata.setOnClickListener { patchUserMetadata() }
+        val i = intent
+        val str = i.getStringExtra("UserType")
+        slct = if (str.equals("User", ignoreCase = true)) 2 else 1
+
     }
 
     private fun updateUI() {
         binding.buttonLogout.isEnabled = cachedCredentials != null
-        binding.metadataPanel.isVisible = cachedCredentials != null
         binding.buttonLogin.isEnabled = cachedCredentials == null
-        binding.userProfile.isVisible = cachedCredentials != null
-
-        binding.userProfile.text =
-            "Name: ${cachedUserProfile?.name ?: ""}\n" + "Email: ${cachedUserProfile?.email ?: ""}"
-        if (cachedUserProfile == null) {
-            binding.inputEditMetadata.setText("")
-        }
     }
 
     private fun loginWithBrowser() {
@@ -74,9 +67,16 @@ class AuthActivity : AppCompatActivity() {
                     showSnackBar("Success: ${credentials.accessToken}")
                     updateUI()
                     showUserProfile()
-                    val intent = Intent(this@AuthActivity, SellerMainActivity::class.java)
-                    startActivity(intent)
-                    finish();
+                    if(slct==1){
+                        val intent = Intent(this@AuthActivity, SellerMainActivity::class.java)
+                        startActivity(intent)
+                        finish();
+                    }
+                    else{
+                        val intent = Intent(this@AuthActivity, UserMainActivity::class.java)
+                        startActivity(intent)
+                        finish();
+                    }
                 }
             })
     }
@@ -134,26 +134,6 @@ class AuthActivity : AppCompatActivity() {
                     updateUI()
 
                     val country = userProfile.getUserMetadata()["country"] as String?
-                    binding.inputEditMetadata.setText(country)
-                }
-            })
-    }
-
-    private fun patchUserMetadata() {
-        val usersClient = UsersAPIClient(account, cachedCredentials!!.accessToken!!)
-        val metadata = mapOf("country" to binding.inputEditMetadata.text.toString())
-
-        usersClient
-            .updateMetadata(cachedUserProfile!!.getId()!!, metadata)
-            .start(object : Callback<UserProfile, ManagementException> {
-                override fun onFailure(exception: ManagementException) {
-                    showSnackBar("Failure: ${exception.getCode()}")
-                }
-
-                override fun onSuccess(profile: UserProfile) {
-                    cachedUserProfile = profile
-                    updateUI()
-                    showSnackBar("Successful")
                 }
             })
     }
