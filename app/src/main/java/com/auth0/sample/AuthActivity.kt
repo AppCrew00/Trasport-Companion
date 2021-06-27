@@ -73,7 +73,7 @@ class AuthActivity : AppCompatActivity() {
                         finish();
                     }
                     else{
-                        val intent = Intent(this@AuthActivity, UserMainActivity::class.java)
+                        val intent = Intent(this@AuthActivity, UserRecyclerView::class.java)
                         startActivity(intent)
                         finish();
                     }

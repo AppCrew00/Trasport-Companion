@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sample">
         <activity android:name=".SingleViewActivity"></activity>
+        <activity android:name=".UserRecyclerView"></activity>
         <activity
             android:name=".MainPageActivity"
             android:screenOrientation="portrait"

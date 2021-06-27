@@ -3,209 +3,216 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#440A67"
     android:orientation="vertical"
-    android:layout_height="match_parent"
     tools:context=".UserMainActivity">
+
     <ScrollView
-        android:layout_width="match_parent"
         android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="10dp">
-                    <TextView
-                        android:layout_marginTop="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/asdk_for_service"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_margin="20dp"
-                        android:id="@+id/ll_job_details"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/service_details_box"
-                        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp">
 
-                        <EditText
-                            android:id="@+id/et_job_description"
-                            android:layout_width="264dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginTop="43dp"
-                            android:fontFamily="@font/montserrat"
-                            android:hint="Job Title"
-                            android:scrollHorizontally="true"
-                            android:singleLine="true" />
-                        <EditText
-                            android:layout_marginTop="39dp"
-                            android:layout_width="264dp"
-                            android:layout_marginLeft="30dp"
-                            android:id="@+id/et_weight"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:scrollHorizontally="true"
-                            android:layout_gravity="center_horizontal"
-                            android:hint="Weight/number of vechiles"
-                            android:fontFamily="@font/montserrat"
-                            />
-                        <EditText
-                            android:layout_marginTop="39dp"
-                            android:layout_width="264dp"
-                            android:layout_marginLeft="30dp"
-                            android:id="@+id/et_price"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:scrollHorizontally="true"
-                            android:layout_gravity="center_horizontal"
-                            android:hint="Proposed Payment"
-                            android:fontFamily="@font/montserrat"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/asdk_for_service" />
 
-                            />
-                        <EditText
-                            android:layout_marginTop="41dp"
-                            android:id="@+id/et_phone_number"
-                            android:layout_width="264dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:scrollHorizontally="true"
-                            android:layout_gravity="center_horizontal"
-                            android:hint="Phone Number"
-                            android:fontFamily="@font/montserrat"
-                            />
-                        <EditText
-                            android:layout_marginTop="41dp"
-                            android:layout_width="264dp"
-                            android:id="@+id/et_last_date"
-                            android:layout_marginLeft="30dp"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:scrollHorizontally="true"
-                            android:layout_gravity="center_horizontal"
-                            android:hint="Time (in days)"
-                            android:fontFamily="@font/montserrat"
-                            />
+            <LinearLayout
+                android:id="@+id/ll_job_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/service_details_box"
+                android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="70dp"
-                            android:layout_marginTop="70dp"
-                            android:fontFamily="@font/montserrat"
-                            android:onClick="set_details"
-                            android:scrollHorizontally="true"
-                            android:singleLine="true" />
-                    </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="100dp"
-                            android:background="@drawable/set_destination_box"
-                            android:id="@+id/ll_address_details"
-                            android:orientation="vertical">
+                <EditText
+                    android:id="@+id/et_job_description"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="43dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Job Title"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
 
-                            <EditText
-                                android:id="@+id/et_address"
-                                android:layout_width="264dp"
-                                android:layout_height="36dp"
-                                android:layout_marginLeft="69dp"
-                                android:scrollHorizontally="true"
-                                android:layout_marginTop="65dp"
-                                android:background="@android:color/transparent"
-                                android:hint="Enter Destination Address"
-                                android:textSize="14sp" />
-                            <EditText
-                                android:id="@+id/et_city"
-                                android:layout_width="264dp"
-                                android:layout_height="36dp"
-                                android:layout_marginLeft="69dp"
-                                android:scrollHorizontally="true"
-                                android:layout_marginTop="55dp"
-                                android:background="@android:color/transparent"
-                                android:hint="Enter City"
-                                android:textSize="14sp" />
-                            <EditText
-                                android:id="@+id/et_landmark"
-                                android:layout_width="264dp"
-                                android:layout_height="36dp"
-                                android:scrollHorizontally="true"
-                                android:layout_marginLeft="69dp"
-                                android:layout_marginTop="52dp"
-                                android:background="@android:color/transparent"
-                                android:hint="Enter Destination Land Mark"
-                                android:textSize="14sp" />
-                            <EditText
-                                android:id="@+id/et_pincode"
-                                android:layout_width="264dp"
-                                android:layout_height="36dp"
-                                android:layout_marginLeft="69dp"
-                                android:scrollHorizontally="true"
-                                android:layout_marginTop="52dp"
-                                android:background="@android:color/transparent"
-                                android:hint="Enter Destination Pincode"
-                                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/et_weight"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="39dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Weight/number of vechiles"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
 
-                            <TextView
-                                android:layout_marginLeft="65dp"
-                                android:layout_width="199dp"
-                                android:layout_marginTop="70dp"
-                                android:layout_height="wrap_content"
-                                android:background="@android:color/transparent"
-                                android:gravity="center"
-                                android:onClick="map_destination"
-                                android:textSize="14sp" />
-<!--                            <TextView-->
-<!--                                android:layout_width="200dp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginLeft="70dp"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:fontFamily="@font/montserrat"-->
-<!--                                android:onClick="set_destination"-->
-<!--                                android:scrollHorizontally="true"-->
-<!--                                android:singleLine="true" />-->
+                <EditText
+                    android:id="@+id/et_price"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="39dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Proposed Payment"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
 
-                        </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/iagree_to_terms_box"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="100dp"
-                        android:id="@+id/ll_post"
-                        android:layout_marginBottom="20dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Phone Number"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
 
-                        <TextView
-                            android:id="@+id/post"
-                            android:layout_marginTop="45dp"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:onClick="btn_discard" />
+                <EditText
+                    android:id="@+id/et_last_date"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="41dp"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Time (in days)"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
 
-                        <TextView
-                            android:id="@+id/buttonDiscard"
-                            android:layout_marginTop="45dp"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="90dp"
-                            android:onClick="btn_post" />
-                    </LinearLayout>
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/montserrat"
+                    android:onClick="set_details"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_address_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/set_destination_box"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="264dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="69dp"
+                    android:layout_marginTop="65dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Destination Address"
+                    android:scrollHorizontally="true"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_city"
+                    android:layout_width="264dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="69dp"
+                    android:layout_marginTop="55dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter City"
+                    android:scrollHorizontally="true"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_landmark"
+                    android:layout_width="264dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="69dp"
+                    android:layout_marginTop="52dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Destination Land Mark"
+                    android:scrollHorizontally="true"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_pincode"
+                    android:layout_width="264dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="69dp"
+                    android:layout_marginTop="52dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Destination Pincode"
+                    android:scrollHorizontally="true"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="199dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="70dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:onClick="map_destination"
+                    android:textSize="14sp" />
+                <!--                            <TextView-->
+                <!--                                android:layout_width="200dp"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:layout_marginLeft="70dp"-->
+                <!--                                android:layout_marginTop="20dp"-->
+                <!--                                android:fontFamily="@font/montserrat"-->
+                <!--                                android:onClick="set_destination"-->
+                <!--                                android:scrollHorizontally="true"-->
+                <!--                                android:singleLine="true" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/iagree_to_terms_box"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/post"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="45dp"
+                    android:onClick="btn_discard" />
+
+                <TextView
+                    android:id="@+id/buttonDiscard"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="45dp"
+                    android:onClick="btn_post" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </ScrollView>
 
