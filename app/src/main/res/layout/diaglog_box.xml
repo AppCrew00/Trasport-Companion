@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="Full Name"
+        android:fontFamily="@font/montserrat"
+        android:background="@android:color/transparent"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="Phone Number"
+        android:fontFamily="@font/montserrat"
+        android:background="@android:color/transparent"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/et_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat"
+        android:background="@android:color/transparent"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        android:hint="Cost"
+        />
+    <EditText
+        android:id="@+id/et_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:fontFamily="@font/montserrat"
+        android:background="@android:color/transparent"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        android:hint="Time"
+        />
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        android:text="SET BID"
+        />
+</LinearLayout>

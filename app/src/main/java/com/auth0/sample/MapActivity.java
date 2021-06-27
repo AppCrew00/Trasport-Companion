@@ -87,6 +87,8 @@ MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.O
     // variables needed to initialize navigation
     private Button button;
     private TextView btn2;
+    private String toGoTo;
+    private String latitide,longitute;
     int k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +101,13 @@ MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.O
         Intent i=getIntent();
         String st=i.getStringExtra("Caller");
         if(st.equalsIgnoreCase("User")) slct_btn=2;
-        else slct_btn=1;
+        else {
+            slct_btn=1;
+           toGoTo=i.getStringExtra("laglong");
+           int tmp=toGoTo.indexOf('+');
+           latitide=toGoTo.substring(0,tmp);
+           longitute=toGoTo.substring(tmp+1,toGoTo.length());
+        }
         mapView.getMapAsync(this);
         // You can add any new location marker here
         // Steps:
@@ -142,6 +150,9 @@ MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.O
                         finish();
                     }
                 });
+                if(slct_btn==1){
+                    addCustomPoint(Double.parseDouble(latitide),Double.parseDouble(longitute));
+                }
             }
         });
     }

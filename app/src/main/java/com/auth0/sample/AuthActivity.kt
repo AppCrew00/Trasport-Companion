@@ -23,6 +23,7 @@ class AuthActivity : AppCompatActivity() {
     private var cachedCredentials: Credentials? = null
     private var cachedUserProfile: UserProfile? = null
     private var slct = 1
+    private var selct=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,8 @@ class AuthActivity : AppCompatActivity() {
         val i = intent
         val str = i.getStringExtra("UserType")
         slct = if (str.equals("User", ignoreCase = true)) 2 else 1
+        val sh = getSharedPreferences("isLogged", MODE_PRIVATE)
+        selct = sh.getInt("logged", 1)
 
     }
 
@@ -73,9 +76,16 @@ class AuthActivity : AppCompatActivity() {
                         finish();
                     }
                     else{
-                        val intent = Intent(this@AuthActivity, UserRecyclerView::class.java)
-                        startActivity(intent)
-                        finish();
+                        if(selct==2) {
+                            val intent = Intent(this@AuthActivity, UserRecyclerView::class.java)
+                            startActivity(intent)
+                            finish();
+                        }
+                        else{
+                            val intent = Intent(this@AuthActivity, UserRegistrationActivity::class.java)
+                            startActivity(intent)
+                            finish();
+                        }
                     }
                 }
             })

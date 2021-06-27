@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
     private String imageUrl,full_name,address,pincode,phone_number;
     private ImageView iv_image;
     private EditText et_full_name,et_address,et_pincode,et_phone_number;
+    private String Emails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class UserRegistrationActivity extends AppCompatActivity {
         et_phone_number=findViewById(R.id.et_phone_number);
         storageReference = FirebaseStorage.getInstance().getReference().child("User_Photos");
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+        SharedPreferences sh = getSharedPreferences("EmailVar", MODE_PRIVATE);
+        Emails=sh.getString("Email", "someone@gmail.com");
         int slct=1;
         Intent i=getIntent();
         String str=i.getStringExtra("UserType");
@@ -86,9 +90,13 @@ public class UserRegistrationActivity extends AppCompatActivity {
         address=" ";
         pincode=et_pincode.getText().toString();
         phone_number=et_phone_number.getText().toString();
-        User newUser=new User(full_name,phone_number,address,pincode,imageUrl);
+        User newUser=new User(full_name,phone_number,address,pincode,Emails);
         databaseReference.push().setValue(newUser);
-        Intent i=new Intent(this,UserMainActivity.class);
+        SharedPreferences sharedPreferences = getSharedPreferences("isLogged",MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putInt("logged",2);
+        myEdit.commit();
+        Intent i=new Intent(this,UserRecyclerView.class);
         startActivity(i);
         finish();
     }
