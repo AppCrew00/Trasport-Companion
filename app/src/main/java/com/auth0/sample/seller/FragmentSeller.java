@@ -54,7 +54,7 @@ public class FragmentSeller extends Fragment implements JobAdapter.clickMe{
     public void perform(int a) {
 
         Intent intent = new Intent( context , SingleViewActivity.class);
-        intent.putExtra("caller" ,"truck");
+        intent.putExtra("Caller" ,"truck");
         intent.putExtra("Object",jobList.get(a));
         startActivity(intent);
 

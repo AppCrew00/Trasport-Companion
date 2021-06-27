@@ -103,7 +103,7 @@ MapActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.O
         if(st.equalsIgnoreCase("User")) slct_btn=2;
         else {
             slct_btn=1;
-           toGoTo=i.getStringExtra("laglong");
+           toGoTo=i.getStringExtra("Laglong");
            int tmp=toGoTo.indexOf('+');
            latitide=toGoTo.substring(0,tmp);
            longitute=toGoTo.substring(tmp+1,toGoTo.length());

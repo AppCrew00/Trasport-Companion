@@ -85,6 +85,11 @@ public class SellerMainActivity extends AppCompatActivity implements View.OnClic
                 editor.putString("name",binding.name.getText().toString());
                 editor.commit();
 
+                SharedPreferences sharedPreferences = getSharedPreferences("isLogged",MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putInt("logged",4);
+                myEdit.commit();
+
                 Intent intent1 = new Intent(this,SellerItemSelector.class);
                 intent1.putExtra("info",sellerInfo);
                 startActivity(intent1);

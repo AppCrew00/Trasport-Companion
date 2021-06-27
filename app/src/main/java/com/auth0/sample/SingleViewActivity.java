@@ -36,7 +36,7 @@ public class SingleViewActivity extends AppCompatActivity {
     private Job jbr;
     private ScrollView scrollView;
     private ProgressDialog pb;
-    private List<Bid> lst;
+    private List<Bid> lst = new ArrayList<>();
     private LinearLayout ll_job,ll_destination;
     private String trucker_email,trucker_phone_number,proposed_time,proposed_money;
 
@@ -62,7 +62,7 @@ public class SingleViewActivity extends AppCompatActivity {
         pb.setMessage("Please Wait.......");
         pb.show();
         Intent i=getIntent();
-        srt=i.getStringExtra("Caller");
+        srt=getIntent().getStringExtra("Caller");
         Job jb=(Job)i.getSerializableExtra("Object");
         jbr=jb;
         if(srt.equalsIgnoreCase("User"))
@@ -73,7 +73,7 @@ public class SingleViewActivity extends AppCompatActivity {
             trucker_email=sh.getString("name","someone@gmail.com");
             SharedPreferences shr = getSharedPreferences("EmailVar", MODE_PRIVATE);
             trucker_phone_number=shr.getString("phone" ,"9140266326");
-            lst=new ArrayList<>(jb.getLst());
+            lst=jb.getLst();
         }
 //        SharedPreferences sh = getSharedPreferences("EmailVar", MODE_PRIVATE);
 //        email=sh.getString("Email", "someone@gmail.com");
@@ -111,11 +111,11 @@ public class SingleViewActivity extends AppCompatActivity {
                     proposed_money=et3.getText().toString();
                     proposed_time=et4.getText().toString();
                     Bid bd=new Bid(trucker_email,trucker_phone_number,proposed_money,proposed_time);
-                    lst=new ArrayList<Bid>(jbr.getLst());
-                    lst.add(bd);
-                    jbr.setLst(lst);
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Jobs").child(key);
-                    databaseReference.setValue(jbr);
+                    //lst=jbr.getLst();
+                   // lst.add(bd);
+                    //jbr.setLst(lst);
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Jobs").child(key).child("list");
+                    databaseReference.push().setValue(bd);
                     Toast.makeText(SingleViewActivity.this, "Bidden Successfully", Toast.LENGTH_SHORT).show();
                     deleteDialog.dismiss();
                 }
@@ -131,9 +131,8 @@ public class SingleViewActivity extends AppCompatActivity {
     public void btn_bid(View view) {
 
         Intent intent = new Intent( this , BidRecyclerAdapter.class );
-        intent.putExtra("bid",jbr);
+        intent.putExtra("bid",key);
         startActivity(intent);
-
     }
     private void focusOnView(int val){
         new Handler().post(new Runnable() {

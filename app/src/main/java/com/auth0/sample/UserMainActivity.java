@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Map;
 
 public class UserMainActivity extends AppCompatActivity {
+
     private String address,pincode,latlong,phoneNumber,landmark,weight,title,payment,time,email,city,key,full_name;
     private EditText et_title,et_address,et_landmark,et_weight,et_payment,et_time,et_phone_number,et_pincode,et_city;
     private DatabaseReference databaseReference,dat2;

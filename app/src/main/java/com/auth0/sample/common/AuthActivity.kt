@@ -16,6 +16,7 @@ import com.auth0.sample.R
 import com.auth0.sample.UserRecyclerView
 import com.auth0.sample.UserRegistrationActivity
 import com.auth0.sample.databinding.ActivityMainBinding
+import com.auth0.sample.seller.SellerActivity
 import com.auth0.sample.seller.SellerMainActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -74,9 +75,16 @@ class AuthActivity : AppCompatActivity() {
                     updateUI()
                     showUserProfile()
                     if(slct==1){
-                        val intent = Intent(this@AuthActivity, SellerMainActivity::class.java)
-                        startActivity(intent)
-                        finish();
+                        if(selct==4){
+                            val intent = Intent(this@AuthActivity, SellerActivity::class.java)
+                            startActivity(intent)
+                            finish();
+                        }
+                        else {
+                            val intent = Intent(this@AuthActivity, SellerMainActivity::class.java)
+                            startActivity(intent)
+                            finish();
+                        }
                     }
                     else{
                         if(selct==2) {
