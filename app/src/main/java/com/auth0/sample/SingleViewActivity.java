@@ -2,15 +2,19 @@ package com.auth0.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,15 +22,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class SingleViewActivity extends AppCompatActivity {
     private String address,pincode,latlong,phoneNumber,landmark,weight,title,payment,time,email,city,key,full_name;
-    private TextView et_title,et_address,et_landmark,et_weight,et_payment,et_time,et_phone_number,et_pincode,et_city,et_full_name;
+    private TextView et_title,et_address,et_landmark,et_weight,et_payment,et_time,et_phone_number,et_pincode,et_city,et_full_name,et_email;
     private DatabaseReference databaseReference,dat2;
     private String srt;
+    private Job jbr;
     private ScrollView scrollView;
+    private ProgressDialog pb;
+    private List<Bid> lst;
     private LinearLayout ll_job,ll_destination;
+    private String trucker_email,trucker_phone_number,proposed_time,proposed_money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,7 @@ public class SingleViewActivity extends AppCompatActivity {
         ll_destination=findViewById(R.id.ll_address_details);
         scrollView=findViewById(R.id.scroll_view);
         et_full_name=findViewById(R.id.et_full_name);
+        et_email=findViewById(R.id.et_email);
         et_city=findViewById(R.id.et_city);
         et_address=findViewById(R.id.et_address);
         et_landmark=findViewById(R.id.et_landmark);
@@ -45,13 +56,23 @@ public class SingleViewActivity extends AppCompatActivity {
         et_pincode=findViewById(R.id.et_pincode);
         et_weight=findViewById(R.id.et_weight);
         et_payment=findViewById(R.id.et_price);
+        pb=new ProgressDialog(this);
+        pb.setMessage("Please Wait.......");
+        pb.show();
         Intent i=getIntent();
         srt=i.getStringExtra("Caller");
-        if(srt.equalsIgnoreCase("User"))
-            ll_job.setBackgroundResource(R.drawable.iagree_to_terms_box);
-        else
-            ll_job.setBackgroundResource(R.drawable.iagree_to_terms_box);
         Job jb=(Job)i.getSerializableExtra("Object");
+        jbr=jb;
+        if(srt.equalsIgnoreCase("User"))
+            ll_job.setBackgroundResource(R.drawable.close_see_bids);
+        else {
+            ll_job.setBackgroundResource(R.drawable.place_seebids);
+            SharedPreferences sh = getSharedPreferences("EmailVar", MODE_PRIVATE);
+            trucker_email=sh.getString("name","someone@gmail.com");
+            SharedPreferences shr = getSharedPreferences("EmailVar", MODE_PRIVATE);
+            trucker_phone_number=shr.getString("phone" ,"9140266326");
+            lst=new ArrayList<>(jb.getLst());
+        }
 //        SharedPreferences sh = getSharedPreferences("EmailVar", MODE_PRIVATE);
 //        email=sh.getString("Email", "someone@gmail.com");
         UpdateDetails(jb);
@@ -72,11 +93,46 @@ public class SingleViewActivity extends AppCompatActivity {
     }
 
     public void btn_close(View view) {
-        finish();
+        if(srt.equalsIgnoreCase("User")){
+            finish();
+        }
+        else{
+            LayoutInflater factory = LayoutInflater.from(this);
+            final View deleteDialogView = factory.inflate(R.layout.diaglog_box, null);
+            final AlertDialog deleteDialog = new AlertDialog.Builder(this).create();
+            deleteDialog.setView(deleteDialogView);
+            EditText et3=(EditText) deleteDialogView.findViewById(R.id.et_time);
+            EditText et4=(EditText) deleteDialogView.findViewById(R.id.et_cost);
+            deleteDialogView.findViewById(R.id.tv_ok).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    proposed_money=et3.getText().toString();
+                    proposed_time=et4.getText().toString();
+                    Bid bd=new Bid(trucker_email,trucker_phone_number,proposed_money,proposed_time);
+                    lst=new ArrayList<Bid>(jbr.getLst());
+                    lst.add(bd);
+                    jbr.setLst(lst);
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Jobs").child(key);
+                    databaseReference.setValue(jbr);
+                    Toast.makeText(SingleViewActivity.this, "Bidden Successfully", Toast.LENGTH_SHORT).show();
+                    deleteDialog.dismiss();
+                }
+            });
+            EditText et1=(EditText) deleteDialogView.findViewById(R.id.et_name);
+            et1.setText(full_name);
+            EditText et2=(EditText) deleteDialogView.findViewById(R.id.et_phone);
+            et2.setText(phoneNumber);
+            deleteDialog.show();
+        }
     }
 
     public void btn_bid(View view) {
+        if(srt.equalsIgnoreCase("User")){
 
+        }
+        else{
+            // handel showing of all the bids
+        }
     }
     private void focusOnView(int val){
         new Handler().post(new Runnable() {
@@ -121,6 +177,7 @@ public class SingleViewActivity extends AppCompatActivity {
             Title=(String) singleUser.get("job_title");
             if((Email.equalsIgnoreCase(complaint.getEmail()))
                     &&(PhoneNubaer.equalsIgnoreCase(complaint.getPhone_number()))&&(Title.equalsIgnoreCase(complaint.getJob_title()))){
+                pb.cancel();
                 return key;
             }
         }
@@ -139,6 +196,7 @@ public class SingleViewActivity extends AppCompatActivity {
         latlong=jb.getLatLong();
         landmark=jb.getLandmark();
         city=jb.getCity();
+        pushDetails();
     }
     void pushDetails(){
         et_full_name.setText(full_name);
@@ -147,9 +205,10 @@ public class SingleViewActivity extends AppCompatActivity {
         et_city.setText(city);
         et_weight.setText(weight);
         et_payment.setText(payment);
+        et_pincode.setText(pincode);
         et_title.setText(title);
         et_phone_number.setText(phoneNumber);
-
+        et_time.setText(time);
+        et_email.setText(email);
     }
-
 }

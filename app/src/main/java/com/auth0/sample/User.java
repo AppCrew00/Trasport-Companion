@@ -1,14 +1,14 @@
 package com.auth0.sample;
 
 public class User {
-    private String full_name,phone_number,address,pincode,image_url;
+    private String full_name,phone_number,address,pincode,email;
 
-    public User(String full_name, String phone_number, String address, String pincode, String image_url) {
+    public User(String full_name, String phone_number, String address, String pincode, String email) {
         this.full_name = full_name;
         this.phone_number = phone_number;
         this.address = address;
         this.pincode = pincode;
-        this.image_url = image_url;
+        this.email = email;
     }
 
     public String getFull_name() {
@@ -44,11 +44,11 @@ public class User {
     }
 
     public String getImage_url() {
-        return image_url;
+        return email;
     }
 
     public void setImage_url(String image_url) {
-        this.image_url = image_url;
+        this.email = image_url;
     }
 
 }

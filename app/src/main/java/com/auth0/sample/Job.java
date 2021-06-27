@@ -1,8 +1,11 @@
 package com.auth0.sample;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Job {
     private String name,email,phone_number,address,landmark,weight,payment,time,job_title,latLong,pincode,city;
-
+    private List<Bid> lst;
     public Job(String name, String email, String phone_number, String address, String landmark, String weight, String payment, String time, String job_title, String latLong, String pincode,String city) {
         this.name = name;
         this.email = email;
@@ -14,8 +17,17 @@ public class Job {
         this.payment = payment;
         this.time = time;
         this.job_title = job_title;
+        this.lst=new ArrayList<Bid>();
         this.latLong = latLong;
         this.pincode = pincode;
+    }
+
+    public List<Bid> getLst() {
+        return lst;
+    }
+
+    public void setLst(List<Bid> lst) {
+        this.lst = lst;
     }
 
     private Job ()
