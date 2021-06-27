@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/what_do_u_sell_bg"
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="20dp"
@@ -13,32 +14,46 @@
         android:id="@+id/baloo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sand ( Baloo )" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:text="Sand ( Baloo )"
+        android:textColor="#440a67"
+        android:textSize="17sp" />
 
     <CheckBox
         android:id="@+id/maurang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Maurang" />
+        android:layout_marginLeft="80dp"
+        android:text="Maurang"
+        android:textColor="#440a67"
+        android:textSize="17sp" />
 
     <CheckBox
         android:id="@+id/sariya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sariya" />
+        android:layout_marginLeft="80dp"
+        android:text="Sariya"
+        android:textColor="#440a67"
+        android:textSize="17sp" />
 
     <CheckBox
         android:id="@+id/cement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cement" />
+        android:layout_marginLeft="80dp"
+        android:text="cement"
+        android:textColor="#440a67"
+        android:textSize="17sp" />
 
-    <Button
+    <TextView
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
-        android:textAllCaps="false"
-        android:textSize="20sp"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/set_details_button"
+        android:fontFamily="@font/montserrat" />
 
 </LinearLayout>

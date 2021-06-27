@@ -4,48 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/service_provider_resgistration"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".seller.SellerMainActivity">
 
-    <EditText
-        android:id="@+id/name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:hint="Enter Your Name" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="243dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/phonoNo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:hint="Enter Your Phono Number" />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat"
+            android:hint="Full Name"
+            android:textSize="17sp" />
 
-    <EditText
-        android:id="@+id/vehicle_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:hint="Enter Vehicle Number" />
+        <EditText
+            android:id="@+id/phonoNo"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat"
+            android:hint="Phone Number"
+            android:textSize="17sp" />
 
-    <EditText
-        android:id="@+id/zipcode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:hint="Enter the ZipCode" />
+        <EditText
+            android:id="@+id/vehicle_number"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="48dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat"
+            android:hint="Vehicle Number"
+            android:textSize="17sp" />
 
-    <Button
+        <EditText
+            android:id="@+id/zipcode"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="48dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat"
+            android:hint="Pincode"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <TextView
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:textAllCaps="false"
-        android:textSize="20sp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/set_details_button"
+        android:fontFamily="@font/montserrat"/>
 
 
 </LinearLayout>
