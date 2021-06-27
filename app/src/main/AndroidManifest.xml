@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sample">
-        <activity android:name=".BidRecyclerActivity"></activity>
-        <activity android:name=".SingleViewActivity" />
-        <activity android:name=".UserRecyclerView" />
+        <activity android:name=".BidRecyclerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SingleViewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".UserRecyclerView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".common.MainPageActivity"
             android:screenOrientation="portrait"
@@ -30,13 +33,16 @@
             android:name=".UserMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".seller.SellerActivity" />
-        <activity android:name=".seller.SellerItemSelector" />
+        <activity android:name=".seller.SellerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".seller.SellerItemSelector"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".seller.SellerMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".UserRegistrationActivity" />
+        <activity android:name=".UserRegistrationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait" />

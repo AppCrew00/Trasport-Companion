@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seller.SellerActivity">
+    tools:context=".seller.SellerActivity"
+    android:background="#3E095E">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#874EA9"
             app:tabTextAppearance="@style/MyCustomStyle" />
 
         <androidx.viewpager.widget.ViewPager
