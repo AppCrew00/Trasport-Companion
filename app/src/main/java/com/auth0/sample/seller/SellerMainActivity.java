@@ -87,6 +87,8 @@ public class SellerMainActivity extends AppCompatActivity implements View.OnClic
                 sellerInfo.setEmail(sharedPreferences.getString("Email",""));
 
                 editor.putString("pincode",binding.zipcode.getText().toString());
+                editor.putString("phone",binding.phonoNo.getText().toString());
+                editor.putString("name",binding.name.getText().toString());
                 editor.commit();
 
                 Intent intent1 = new Intent(this,SellerItemSelector.class);

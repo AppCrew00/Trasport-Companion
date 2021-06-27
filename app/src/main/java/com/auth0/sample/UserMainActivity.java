@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -77,7 +78,7 @@ public class UserMainActivity extends AppCompatActivity {
         SharedPreferences sh = getSharedPreferences("Location", MODE_PRIVATE);
         latlong=sh.getString("Destination", "null");
         if(!(latlong.equalsIgnoreCase("null")))
-            Toast.makeText(this, "Captured Coordinates "+latlong, Toast.LENGTH_SHORT).show();
+            Log.d("gggggggg",latlong.toString());
     }
     void reset(){
         et_phone_number.setText("");
