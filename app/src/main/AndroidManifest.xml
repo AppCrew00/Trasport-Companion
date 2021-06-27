@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sample">
-        <activity android:name=".SingleViewActivity"></activity>
-        <activity android:name=".UserRecyclerView"></activity>
+        <activity android:name=".BidRecyclerActivity"></activity>
+        <activity android:name=".SingleViewActivity" />
+        <activity android:name=".UserRecyclerView" />
         <activity
             android:name=".common.MainPageActivity"
             android:screenOrientation="portrait"
@@ -42,7 +43,7 @@
         <activity
             android:name=".common.AuthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

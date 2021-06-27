@@ -100,5 +100,10 @@ public class UserRecyclerView extends AppCompatActivity implements View.OnClickL
     @Override
     public void perform(int a) {
 
+        Intent intent = new Intent( this , SingleViewActivity.class );
+        intent.putExtra("caller","user");
+        intent.putExtra("Object",jobList.get(a));
+        startActivity(intent);
+
     }
 }
