@@ -41,15 +41,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
         et_full_name=findViewById(R.id.et_full_name);
         et_pincode=findViewById(R.id.et_pincode);
         et_phone_number=findViewById(R.id.et_phone_number);
+        et_address=findViewById(R.id.et_address);
         storageReference = FirebaseStorage.getInstance().getReference().child("User_Photos");
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
         SharedPreferences sh = getSharedPreferences("EmailVar", MODE_PRIVATE);
         Emails=sh.getString("Email", "someone@gmail.com");
-        int slct=1;
-        Intent i=getIntent();
-        String str=i.getStringExtra("UserType");
-        if(str.equalsIgnoreCase("User"))slct=2;
-        else slct=1;
     }
     void UploadImage(){
         photoRef.putFile(photoUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -87,7 +83,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
     public void set_details(View view) {
         full_name=et_full_name.getText().toString();
-        address=" ";
+        address=et_address.getText().toString();
         pincode=et_pincode.getText().toString();
         phone_number=et_phone_number.getText().toString();
         User newUser=new User(full_name,phone_number,address,pincode,Emails);

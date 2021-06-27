@@ -128,7 +128,7 @@ public class UserMainActivity extends AppCompatActivity {
     }
     private void findTheComplainChild(String id){
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("User");
         ref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
@@ -148,7 +148,7 @@ public class UserMainActivity extends AppCompatActivity {
         for (Map.Entry<String, Object> entry : value.entrySet()){
             String key=entry.getKey().toString();
             Map singleUser = (Map) entry.getValue();
-            Email= (String) singleUser.get("email");
+            Email= (String) singleUser.get("image_url");
             full_name=(String) singleUser.get("full_name");
             if((Email.equalsIgnoreCase(emal))){
                 pb.cancel();

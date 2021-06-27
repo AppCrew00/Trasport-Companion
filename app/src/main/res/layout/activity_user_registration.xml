@@ -19,8 +19,9 @@
             android:id="@+id/et_full_name"
             android:layout_width="307dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:fontFamily="@font/montserrat"
             android:hint="Full Name"
             android:textSize="17sp" />
@@ -28,7 +29,8 @@
                 android:id="@+id/et_phone_number"
                 android:layout_width="307dp"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:hint="Phone Number"
@@ -37,31 +39,32 @@
             android:id="@+id/et_address"
             android:layout_width="307dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="48dp"
+            android:background="@android:color/transparent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:hint="Address"
             android:textSize="17sp" />
             <EditText
                 android:id="@+id/et_pincode"
+                android:background="@android:color/transparent"
                 android:layout_width="307dp"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:hint="Pincode"
                 android:textSize="17sp" />
     </LinearLayout>
-        <TextView
-            android:gravity="center"
-            android:layout_marginLeft="150dp"
-            android:textAllCaps="true"
-            android:layout_marginTop="50dp"
-            android:onClick="set_details"
-            android:text="Set Details"
-            android:background="@color/mapbox_blue"
-            android:fontFamily="@font/montserrat"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/set_details_button"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:onClick="set_details"
+        android:textAllCaps="true" />
 </LinearLayout>
