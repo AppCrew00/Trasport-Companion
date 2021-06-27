@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.auth0.sample.Job;
+import com.auth0.sample.classes.Job;
 import com.auth0.sample.R;
 
 import java.util.List;

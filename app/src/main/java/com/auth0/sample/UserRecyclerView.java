@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.auth0.sample.classes.Job;
 import com.auth0.sample.databinding.ActivityUserRecyclerViewBinding;
 import com.auth0.sample.seller.JobAdapter;
 import com.google.firebase.database.ChildEventListener;

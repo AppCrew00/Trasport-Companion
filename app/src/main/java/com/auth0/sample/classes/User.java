@@ -1,4 +1,4 @@
-package com.auth0.sample;
+package com.auth0.sample.classes;
 
 public class User {
     private String full_name,phone_number,address,pincode,email;

@@ -9,14 +9,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Chutiya"
+        android:label="WonStore"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sample">
         <activity android:name=".SingleViewActivity"></activity>
         <activity android:name=".UserRecyclerView"></activity>
         <activity
-            android:name=".MainPageActivity"
+            android:name=".common.MainPageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -37,14 +37,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".UserRegistrationActivity" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".MapActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".common.AuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 

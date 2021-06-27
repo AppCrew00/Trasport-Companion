@@ -1,4 +1,4 @@
-package com.auth0.sample
+package com.auth0.sample.common
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,9 @@ import com.auth0.android.management.UsersAPIClient
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
+import com.auth0.sample.R
+import com.auth0.sample.UserRecyclerView
+import com.auth0.sample.UserRegistrationActivity
 import com.auth0.sample.databinding.ActivityMainBinding
 import com.auth0.sample.seller.SellerMainActivity
 import com.google.android.material.snackbar.Snackbar

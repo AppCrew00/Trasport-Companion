@@ -1,4 +1,6 @@
-package com.auth0.sample;
+package com.auth0.sample.classes;
+
+import com.auth0.sample.classes.Bid;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.auth0.sample.seller;
+package com.auth0.sample.classes;
 
 import java.io.Serializable;
 import java.util.List;

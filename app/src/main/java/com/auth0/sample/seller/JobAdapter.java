@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.auth0.sample.Job;
+import com.auth0.sample.classes.Job;
 import com.auth0.sample.R;
 
 import org.jetbrains.annotations.NotNull;
