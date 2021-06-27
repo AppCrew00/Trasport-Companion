@@ -70,7 +70,7 @@ public class UserMainActivity extends AppCompatActivity {
         city=et_city.getText().toString();
         weight=et_weight.getText().toString();
         phoneNumber=et_phone_number.getText().toString();
-        Job jb=new Job(email,email,phoneNumber,address,landmark,weight,payment,time,title,latlong,pincode,city);
+        Job jb=new Job(full_name,email,phoneNumber,address,landmark,weight,payment,time,title,latlong,pincode,city);
         jb.setCity("lmp");
         databaseReference.push().setValue(jb);
         Toast.makeText(this, "Posted Successfully", Toast.LENGTH_SHORT).show();
